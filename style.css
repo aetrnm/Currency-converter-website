@@ -22,8 +22,6 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    margin-bottom: 100px;
 }
 
 .swapButton{
@@ -36,6 +34,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     border: none;
+    margin-bottom: 100px;
+    height: 70px;
 }
 
 select {
@@ -82,4 +82,41 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+    body {
+        background: ghostwhite;
+    }
+
+    .grid {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content:space-evenly;
+    }
+
+    .column{
+        justify-content: space-around;
+    }
+
+    #welcomeText{
+        margin-bottom: 50px;
+    }
+
+    .swapButton{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        transform: rotate(90deg);
+    }
+
+    .columnFirst{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .dropDownList{
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
 }
