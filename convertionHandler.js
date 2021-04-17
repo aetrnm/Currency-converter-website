@@ -80,3 +80,9 @@ function CheckVal(s){
 }
 
 convert();
+
+$(document).ready(function() {
+    $( ".swapButton").click( function() {
+        $("#swapButton").toggleClass('flip');
+    });
+});
