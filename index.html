@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My First Website!</title>
+<title>Currency Converter</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="convertionHandler.js" async></script>
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
@@ -127,7 +127,7 @@
 </div>
 
 <div class="grid">
-  <input type="text" maxlength="10" id="amount" placeholder="Enter amount" onpaste="return false;" onkeypress="return CheckValidity(this, event);">
+  <input type="text" maxlength="10" id="amount" placeholder="Enter amount" onpaste="return false;" onkeypress="return CheckValidity(this, event);" inputmode="numeric">
   <br>
   <input type="text" id="result" placeholder="0" readonly>
 </div>

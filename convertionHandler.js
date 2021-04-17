@@ -5,6 +5,7 @@ const fromCurrencyDropDownList = document.getElementById('fromCurrencyDropDownLi
 const toCurrencyDropDownList = document.getElementById('toCurrencyDropDownList');
 
 const moneyAmount = document.getElementById('amount');
+moneyAmount.focus();
 const resultField = document.getElementById('result');
 
 
@@ -20,7 +21,7 @@ swapCurrency.addEventListener('click', () => {
     convert();
 });
 
-async function convert() {
+function convert() {
     var ifConnected = window.navigator.onLine;
     if (!ifConnected) {
         alert('No internet connection!');
@@ -35,6 +36,10 @@ async function convert() {
     //Bug fix
     if(valueToExchange[valueToExchange.length-1] == '.'){
         valueToExchange = valueToExchange.slice(0, -1);
+    }
+
+    if(valueToExchange == '.'){
+        valueToExchange = 0;
     }
 
     fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
@@ -52,12 +57,12 @@ moneyAmount.addEventListener("keyup", function(){
 });
 
 
-async function CheckValidity(string, e){
+function CheckValidity(string, e){
     setTimeout(function(){    
         if (string.value.split('.').length - 1 > 1){
             string.value = string.value.slice(0, -1);
         }
-        if (!(e.key.charCodeAt(0) == 46 || e.key.charCodeAt(0) == 48 || e.key.charCodeAt(0) >= 48 && e.key.charCodeAt(0) <= 57)){
+        if (!(e.key.charCodeAt(0) == 44 || e.key.charCodeAt(0) == 46 || (e.key.charCodeAt(0) >= 48 && e.key.charCodeAt(0) <= 57))){
             string.value = string.value.slice(0, -1);
         }
     }, 10);
