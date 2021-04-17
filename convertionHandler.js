@@ -21,7 +21,7 @@ swapCurrency.addEventListener('click', () => {
     convert();
 });
 
-function convert() {
+async function convert() {
     var ifConnected = window.navigator.onLine;
     if (!ifConnected) {
         alert('No internet connection!');
