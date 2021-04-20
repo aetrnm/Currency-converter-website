@@ -8,6 +8,7 @@
 <script src="convertionHandler.js" async></script>
 <link src='https ://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="icon" href="images/icon.png">
 </head>
 
 <body>
@@ -70,7 +71,7 @@
       <option value="VND">VND</option>
       <option value="ZAR">ZAR</option>
     </select>
-    <input type="text" maxlength="12" id="amount" placeholder="Enter amount" onpaste="return false;" onkeypress="return CheckValidity(this, event);" inputmode="numeric">
+    <input type="number" id="amount" placeholder="Enter amount" onpaste="return false;" onkeypress="return this.value.length < 15;">
   </div>
   
   <div class="column">

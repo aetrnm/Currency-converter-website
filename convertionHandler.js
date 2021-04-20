@@ -29,21 +29,9 @@ async function convert() {
     }
     const fromCurrency = fromCurrencyDropDownList.value;
     const toCurrency = toCurrencyDropDownList.value;
-
-    moneyAmount.value = moneyAmount.value.replace(',','.');
+    
     valueToExchange = moneyAmount.value;
-
-    //Bug fix
-    if(valueToExchange[valueToExchange.length-1] == '.'){
-        valueToExchange = valueToExchange.slice(0, -1);
-    }
-
-    if(valueToExchange == '.'){
-        valueToExchange = 0;
-    }
-
-    CheckVal(valueToExchange);
-
+    
     fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
         .then(res => res.json())
         .then(res => {
@@ -56,28 +44,6 @@ async function convert() {
 moneyAmount.addEventListener("keyup", function(){
     moneyAmount.value = moneyAmount.value.replace(/(\.\d{2})\d+/g, '$1');
 });
-
-async function CheckValidity(string, e){
-    setTimeout(function(){    
-        if (string.value.split('.').length - 1 > 1){
-            string.value = string.value.replace('.', '');
-        }
-        if (!(e.key.charCodeAt(0) == 44 || e.key.charCodeAt(0) == 46 || (e.key.charCodeAt(0) >= 48 && e.key.charCodeAt(0) <= 57))){
-            string.value = string.value.replace(e.key, '');
-        }
-    }, 10);
-}
-
-function CheckVal(s){
-    for (var i = 0; i < s.length; i++) 
-    {
-        e = s.charAt(i);
-        if (!(e.charCodeAt(0) == 44 || e.charCodeAt(0) == 46 || (e.charCodeAt(0) >= 48 && e.charCodeAt(0) <= 57)))
-        {
-            s = s.replace(e, '');
-        }
-    };
-}
 
 convert();
 
