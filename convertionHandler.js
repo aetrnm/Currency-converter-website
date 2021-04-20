@@ -45,10 +45,25 @@ moneyAmount.addEventListener("keyup", function(){
     moneyAmount.value = moneyAmount.value.replace(/(\.\d{2})\d+/g, '$1');
 });
 
-convert();
+function onKeyPress(evt){
+    evt = (evt) ? evt : (window.event) ? event : null;
+    if (evt)
+    {
+        var charCode = (evt.charCode) ? evt.charCode :((evt.keyCode) ? evt.keyCode :((evt.which) ? evt.which : 0));
+        if (charCode == 43) 
+            return false;
+        if (charCode == 45) 
+            return false;
+        if (moneyAmount.value.length > 14){
+            return false;
+        }
+    }
+}
 
 $(document).ready(function() {
     $( ".swapButton").click( function() {
         $("#swapButton").toggleClass('flip');
     });
 });
+
+convert();

@@ -71,7 +71,7 @@
       <option value="VND">VND</option>
       <option value="ZAR">ZAR</option>
     </select>
-    <input type="number" id="amount" placeholder="Enter amount" onpaste="return false;" onkeypress="return this.value.length < 15 && event.key != '-' && event.key != '+';">
+    <input type="number" id="amount" placeholder="Enter amount" onpaste="return false;" onkeypress="return onKeyPress(event)">
   </div>
   
   <div class="column">
